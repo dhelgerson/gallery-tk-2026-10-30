@@ -1,35 +1,26 @@
 {
   "studio": {
-    "name": "Your Studio",
-    "email": "hello@your-studio.example",
-    "url": "https://your-studio.example"
+    "name": "Drew Helgerson",
+    "email": "inputoutput1126@gmail.com"
   },
   "client": {
-    "name": "Demo Client",
-    "event": "Gallery Preview",
-    "date": "",
+    "name": "Kelly & Tyler",
+    "event": "Wedding",
+    "date": "October 30, 2026",
     "location": ""
   },
   "gate": {
     "enabled": true,
-    "codeHash": "0ead2060b65992dca4769af601a1b3a35ef38cfad2c2c465bb160ea764157c5d",
-    "hint": "Demo gallery — access code: demo1234"
+    "codeHash": "68d548fc04077d937aa98cd195ac431b84dee432411ddd72b0e28739566533b9",
+    "hint": "Check your email or text from Drew for the access code."
   },
   "collections": [
     {
-      "id": "portraits",
-      "title": "Portraits",
-      "description": "Select previews from the session.",
-      "dir": "portraits",
-      "release": null,
-      "zipAsset": null
-    },
-    {
-      "id": "landscapes",
-      "title": "Landscapes",
-      "description": "Golden-hour exteriors.",
-      "dir": "landscapes",
-      "release": null,
+      "id": "wedding",
+      "title": "The Wedding",
+      "description": "October 30th — thank you for letting me be there.",
+      "dir": "wedding",
+      "release": "delivery",
       "zipAsset": null
     }
   ]

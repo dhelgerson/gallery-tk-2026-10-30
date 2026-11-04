@@ -13,5 +13,8 @@
     "code": "node build/hash-code.mjs --set",
     "previews": "node scripts/previews.mjs",
     "deliver": "node scripts/deliver.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.5"
   }
 }
