@@ -1,0 +1,19 @@
+# Build output (CI regenerates this; Pages deploys an artifact, not a branch)
+dist/
+
+# Local originals — these belong in a GitHub Release, not in the repo
+src/originals/
+*.zip
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Resolved release links (CI regenerates this on every build)
+build/release-assets.json
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

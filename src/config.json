@@ -1,0 +1,36 @@
+{
+  "studio": {
+    "name": "Your Studio",
+    "email": "hello@your-studio.example",
+    "url": "https://your-studio.example"
+  },
+  "client": {
+    "name": "Demo Client",
+    "event": "Gallery Preview",
+    "date": "",
+    "location": ""
+  },
+  "gate": {
+    "enabled": true,
+    "codeHash": "0ead2060b65992dca4769af601a1b3a35ef38cfad2c2c465bb160ea764157c5d",
+    "hint": "Demo gallery — access code: demo1234"
+  },
+  "collections": [
+    {
+      "id": "portraits",
+      "title": "Portraits",
+      "description": "Select previews from the session.",
+      "dir": "portraits",
+      "release": null,
+      "zipAsset": null
+    },
+    {
+      "id": "landscapes",
+      "title": "Landscapes",
+      "description": "Golden-hour exteriors.",
+      "dir": "landscapes",
+      "release": null,
+      "zipAsset": null
+    }
+  ]
+}

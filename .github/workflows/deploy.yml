@@ -1,0 +1,72 @@
+# Build the client gallery and deploy it to GitHub Pages.
+#
+# Pipeline on every push to main (and nightly, to pick up freshly uploaded
+# Release assets):
+#   1. resolve full-res download links from GitHub Releases  (build/releases.mjs)
+#   2. render the static site into dist/                     (build/build.mjs)
+#   3. publish dist/ as the Pages deployment (artifact-based; no gh-pages branch)
+name: deploy gallery
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+  schedule:
+    # Nightly rebuild so originals uploaded to a Release appear as download
+    # links without needing a code change. Harmless once delivery is complete;
+    # delete this trigger when a gallery is final.
+    - cron: "17 7 * * *"
+
+permissions:
+  contents: read
+  pages: write      # deploy to Pages
+  id-token: write   # verifiable deployment token
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # One-time convenience: turn on Pages (workflow build type) on the first
+      # run. Skips silently when Pages is already enabled; if the token lacks
+      # rights, see README for the manual one-liner.
+      - name: Enable GitHub Pages (first run only)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/pages" >/dev/null 2>&1 \
+            || gh api -X POST "/repos/$GITHUB_REPOSITORY/pages" -f build_type=workflow
+
+      - name: Resolve full-res download links from Releases
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node build/releases.mjs
+
+      - name: Build static site
+        run: node build/build.mjs
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

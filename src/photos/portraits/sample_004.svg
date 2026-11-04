@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1600" viewBox="0 0 1200 1600">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#2b1d3a"/><stop offset=".55" stop-color="#8a5a83"/><stop offset="1" stop-color="#e8b98a"/>
+  </linearGradient></defs>
+  <rect width="1200" height="1600" fill="url(#g)"/>
+  <circle cx="864" cy="480" r="144" fill="rgba(255,255,255,0.75)"/>
+  <ellipse cx="360" cy="1680" rx="660" ry="560" fill="rgba(0,0,0,0.35)"/>
+  <text x="40" y="1554" font-family="Georgia, serif" font-size="30" fill="rgba(255,255,255,0.9)">Portrait Sample 04</text>
+  <text x="40" y="1584" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="rgba(255,255,255,0.55)">sample preview · replace with your photos</text>
+</svg>

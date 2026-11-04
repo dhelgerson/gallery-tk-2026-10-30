@@ -1,0 +1,17 @@
+{
+  "name": "client-gallery",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Personalized photography delivery page for one client, hosted free on GitHub Pages.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node build/build.mjs",
+    "dev": "node build/build.mjs && node scripts/serve.mjs",
+    "code": "node build/hash-code.mjs --set",
+    "previews": "node scripts/previews.mjs",
+    "deliver": "node scripts/deliver.mjs"
+  }
+}
